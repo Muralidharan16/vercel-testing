@@ -113,6 +113,25 @@ const fetchSortAndInsert = async (queryMonth) => {
     }
 };
 
+// Ftech data monthwise
+
+const fetchDataMonthWise = async (queryMonth) => {
+    try {
+        const selectQuery = `
+            SELECT
+                *
+            FROM
+                product
+            WHERE strftime("%m", dateOfSale) = ?;
+        `
+        const theValues = await db.all(selectQuery, [queryMonth.toString()]);
+
+        return theValues;
+    } catch (err) {
+        console.error(err);
+    }
+};
+
 // Fetch data by query parameter
 
 const fetchTransaction = async (search, page=1, pageLimit=10) => {
@@ -252,6 +271,20 @@ app.get('/product/:month', async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).send('Interval Error');
+    }
+});
+
+//Fetch data based on month
+
+app.get('/products/:month', async (req, res) => {
+    try {
+        const {month} = req.params;
+        const fetchedDataMonthly = await fetchDataMonthWise(month);
+
+        res.json(fetchedDataMonthly);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Interval Error");
     }
 });
 
