@@ -1,0 +1,21 @@
+.bar-chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 85%;
+    padding: 30px;
+    background-color: rgb(182, 242, 222);
+}
+
+.bar-chart-choose-month {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.bar-chart-head {
+    margin-left: 80px;
+    color: rgb(216, 168, 110);
+}

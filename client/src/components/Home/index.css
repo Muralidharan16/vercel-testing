@@ -1,0 +1,29 @@
+.home-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+
+.home-ul-list {
+    list-style-type: none;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.list-styling {
+    border: 3px solid #47045a;
+    padding: 20px 40px 20px 40px;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.home-image {
+    height: 300px;
+    width: 400px;
+}
